@@ -4702,7 +4702,6 @@
                 prevEl: ".hero__btn-prev-slide",
                 nextEl: ".hero__btn-next-slide",
               },
-              on: {},
             }),
             new se(".surf__slider", {
               modules: [re, oe],
@@ -4722,6 +4721,7 @@
               modules: [re, oe, ue],
               effect: "fade",
               fadeEffect: { crossFade: !0 },
+              autoplay: { delay: 3500 },
               observer: !0,
               observeParents: !0,
               slidesPerView: 1,
@@ -6100,6 +6100,16 @@
           (document.documentElement.classList.remove("menu-open"),
           document.documentElement.classList.remove("lock"),
           (mt = !0));
+    }),
+      document.documentElement.classList.add("lock");
+    let vt = document.querySelector(".preloader");
+    (window.onload = function () {
+      vt &&
+        (vt.classList.add("hide-preloader"),
+        setInterval(function () {
+          vt.classList.add("preloader-hidden");
+        }, 990)),
+        document.documentElement.classList.remove("lock");
     }),
       (window.FLS = !0),
       (function (e) {
