@@ -1304,6 +1304,32 @@ h6 {
   flex-direction: column;
 }
 
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #171919;
+  z-index: 100;
+  transition: opacity 1s ease;
+}
+.preloader.hide-preloader {
+  animation: hide-preloader 1s;
+}
+@keyframes hide-preloader {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.preloader.preloader-hidden {
+  display: none;
+}
+
 .header {
   position: absolute;
   top: 0;
@@ -1450,7 +1476,6 @@ h6 {
 @media (max-width: 47.99875em) {
   .header {
     left: -10.5rem;
-    transition: left 0.3s ease;
     background: radial-gradient(62.09% 62.09% at 42.87% 49.23%, rgba(34, 34, 34, 0.82) 0%, #0F0F0F 100%);
   }
   .menu-open .header {
@@ -1580,6 +1605,10 @@ h6 {
 }
 .header .simplebar-content {
   text-align: center;
+}
+
+#header {
+  transition: left 0.5s ease, height 0.2s;
 }
 
 .icon-menu {
@@ -1921,17 +1950,11 @@ h6 {
   width: 69.4444444444%;
   height: 48.3%;
 }
-@media (max-height: 51.875em) {
-  .slide-hero__map-img-ibg {
-    height: 60%;
-    opacity: 0.2;
-  }
-}
 @media (max-width: 61.99875em) {
   .slide-hero__map-img-ibg {
     width: 40%;
     height: 30%;
-    opacity: 0.1;
+    opacity: 0.3;
   }
 }
 .slide-hero__title {
@@ -2686,7 +2709,7 @@ h6 {
 }
 .img-product__info-point_two {
   top: 42.5%;
-  left: -1%;
+  left: 0%;
 }
 .img-product__info-point_two span {
   left: 3.5rem;
@@ -2700,6 +2723,9 @@ h6 {
   top: 87.7%;
   left: 23%;
 }
+.img-product__info-point_three span {
+  left: 2.8125rem;
+}
 @media (min-width: 61.99875em) {
   .img-product__info-point_three span {
     left: -22.75rem;
@@ -2711,13 +2737,23 @@ h6 {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0.75rem;
   height: 0.125rem;
+  width: 60%;
   transform: translate(-50%, -50%);
   background-color: #4AF6CD;
 }
+@media (max-width: 47.99875em) {
+  .img-product__info-point::before, .img-product__info-point::after {
+    height: 0.0625rem;
+  }
+}
 .img-product__info-point::after {
   transform: translate(-50%, -50%) rotate(90deg);
+}
+@media (max-width: 61.99875em) {
+  .img-product__info-point::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
 }
 .img-product__info-point:hover::after {
   transform: translate(-50%, -50%) rotate(0deg);
